@@ -22,15 +22,16 @@ This gives us enough variety to test ordinary daily life without requiring a lar
 
 ## 2. Recommended initial boundary
 
-Start with a compact test window of approximately 500–800 metres across, anchored around the south-western edge of Victoria Park and nearby Bethnal Green / canal-side streets. Treat this as a visualisation and performance test boundary, not a final game-world border.
+Start with a compact test window of approximately 500–800 metres across. Victoria Park / Bethnal Green / Regent's Canal is a candidate area only; the founder will select the exact Hackney boundary.
 
-The exact rectangle should be selected in the editor after checking:
-- how well the available Cesium imagery and building data cover the area;
-- whether the chosen streets and park paths are represented clearly enough;
-- whether there are suitable public-facing landmarks for navigation;
-- streaming quality, draw calls, memory use and frame rate.
+Choose the rectangle after checking:
+- OSM road, junction, building-footprint and relevant tag coverage;
+- the quality of the available road-centreline elevation inputs;
+- how the existing procedural generator handles the selected street layout;
+- whether any Cesium terrain/imagery/building layers align with the procedural result;
+- generated geometry quality, memory use and frame rate.
 
-Do not attempt to make all of Hackney and Tower Hamlets playable in this first milestone.
+Do not attempt to make all of Hackney playable in this first milestone.
 
 ## 3. First prototype goals
 
