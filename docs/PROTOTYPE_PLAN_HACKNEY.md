@@ -1,11 +1,11 @@
 # Living World Prototype Plan — Hackney
 
 **Engine target:** Unreal Engine 5.8  
-**Technical foundation:** existing Walsall Game 5.8 project, continued as Living World  
+**Technical foundation:** existing Walsall Game 5.8 codebase, to be renamed/rebranded as the LivingWorld Unreal project  
 **World generation:** existing OpenStreetMap-driven procedural city systems and procedural terrain heightfield  
 **Geospatial integration:** retain the current procedural foundation; develop the planned Cesium blend zone and evaluate fuller Cesium replacement as a later option  
 **Working location:** Hackney, London — exact compact test boundary to be selected  
-**Status:** existing project is reported ready and compiling; location-specific data setup and testing remain to be done
+**Status:** existing project is reported ready and compiling; project rename and Hackney-specific data setup/testing remain to be done
 
 ## 1. Why this location
 
@@ -36,16 +36,16 @@ Do not attempt to make all of Hackney playable in this first milestone.
 ## 3. First prototype goals
 
 ### Milestone A — Move the existing procedural city to Hackney
-The existing Walsall Game 5.8 project is the technical base. The uploaded project brief reports that the C++ build compiles successfully and that the procedural terrain heightfield and intersection culling fixes are complete.
+The existing Walsall Game 5.8 project is the technical base and is to be renamed/rebranded as LivingWorld. The uploaded project brief reports that the C++ build compiles successfully and that the procedural terrain heightfield and intersection culling fixes are complete.
 
 - Preserve the existing OSM-driven procedural roads/buildings, terrain heightfield, building spawner and completed fixes.
 - Configure or import the OSM source data for the selected Hackney test boundary.
 - Verify road, junction, building-footprint and elevation coverage before changing generator logic.
-- Run the procedural generation in a separate Hackney test level/map so the existing Walsall setup can be retained as a known-good reference.
+- Run the procedural generation in a separate Hackney test level/map so the existing pre-migration setup can be retained as a known-good reference.
 - Record any location-specific assumptions, missing OSM tags, unsupported geometry and data-cleaning requirements.
 - Keep Cesium integration as a distinct layer/phase; do not remove or replace the procedural heightfield as part of the location move.
 
-**Acceptance:** the existing procedural pipeline can generate a repeatable Hackney test area without regressions to the known-good Walsall build.
+**Acceptance:** the existing procedural pipeline can generate a repeatable Hackney test area without regressions to the known-good pre-rename build.
 
 ### Milestone B — Player movement and multi-perspective camera
 - Add one player character with **first-person as the default in-game view**.
@@ -154,7 +154,7 @@ Use Blueprints for fast visual iteration and C++ where reusable foundations, dat
 
 ## 7. Suggested first sprint
 
-1. Keep the existing Walsall Game 5.8 project as the working codebase; do not create a replacement project.
+1. Rename the existing Walsall Game 5.8 project to the LivingWorld project in place; do not create a replacement project. Preserve a backup and a known-good commit before renaming.
 2. Confirm the current build still compiles and preserve a known-good backup/commit.
 3. Choose the exact compact Hackney test boundary.
 4. Obtain and inspect OSM data for that boundary; confirm the required roads, junctions, building footprints and elevation inputs.
