@@ -16,7 +16,7 @@ The project combines three layers:
 
 Prove the idea in one small town or neighbourhood before attempting a global simulation.
 
-The initial prototype will build on the existing Walsall Game 5.8 codebase and move its procedural OSM-driven city generation to a compact Hackney, London test area. It will explore:
+The initial prototype will continue the existing Walsall Game 5.8 codebase, rename/rebrand it as LivingWorld, and move its procedural OSM-driven city generation to a compact Hackney, London test area. Existing working systems and fixes are to be preserved during the rename. It will explore:
 - OSM-driven procedural roads, junctions, buildings and terrain heightfield;
 - a planned procedural-terrain/Cesium blend zone, with full Cesium replacement remaining optional;
 - first-person movement as the default, with switchable front-facing, third-person and top-down camera perspectives;
@@ -60,6 +60,9 @@ The Founder and Creative Director retains final responsibility for creative dire
 ## Project references
 
 - [Existing project status and Hackney migration](docs/EXISTING_PROJECT_STATUS.md)
+- [Hackney prototype plan](docs/PROTOTYPE_PLAN_HACKNEY.md)
+- [Camera system design](docs/CAMERA_SYSTEM.md)
+- [Existing project status and rename plan](docs/EXISTING_PROJECT_STATUS.md)
 - [Hackney prototype plan](docs/PROTOTYPE_PLAN_HACKNEY.md)
 - [Camera system design](docs/CAMERA_SYSTEM.md)
 - [Project overview](docs/PROJECT_OVERVIEW.md)
