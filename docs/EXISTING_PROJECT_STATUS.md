@@ -1,15 +1,16 @@
-# Existing Project Status — Walsall Game 5.8 / Living World
+# Living World — Existing Project Status and Rename Plan
 
 **Purpose:** record the technical starting point for Living World, based on the project brief supplied by the founder.  
-**Engine/project:** Walsall Game 5.8 (Unreal Engine 5.8)  
+**Current Unreal project:** Walsall Game 5.8 (Unreal Engine 5.8)  
+**Target Unreal project/display name:** LivingWorld / Living World  
 **Future prototype location:** Hackney, London  
 **Status source:** founder-provided `Living_World_Project_Brief.md`; this document records the reported status and does not independently verify the local build.
 
 ## Project direction
 
-Living World will continue from the existing Walsall Game 5.8 project. The project is not being restarted from a blank Unreal template. Walsall is the current technical/code foundation; Hackney will be the selected location for the next prototype environment.
+Living World will continue from the existing Walsall Game 5.8 project. The project is not being restarted from a blank Unreal template. The existing codebase is to be renamed/rebranded in place as the LivingWorld Unreal project; Hackney will be the selected location for the next prototype environment. The GitHub repository is already named `Living-World`.
 
-The supplied brief describes the goal as procedural city generation using OpenStreetMap (OSM) data. The next location task is to configure the existing data/generation pipeline for a compact Hackney area and validate the output, while preserving the known-good Walsall setup.
+The supplied brief describes the goal as procedural city generation using OpenStreetMap (OSM) data. The next tasks are to safely rename/rebrand the local Unreal project and configure the existing data/generation pipeline for a compact Hackney area, while preserving a backup and a known-good pre-rename build.
 
 ## Reported completed work
 
@@ -58,6 +59,22 @@ The supplied project brief records this sequence:
 3. **Full Cesium replacement — optional future phase.** The brief describes this as a later option, not a required immediate step.
 
 Living World should preserve the current procedural terrain foundation while the blend-zone approach is developed and tested. Full Cesium replacement should remain an explicit future decision, not be assumed as the next task.
+
+## Unreal project rename — next work
+
+The intended public/game name is **Living World**. Use `LivingWorld` as the Unreal project/module identifier (no hyphen) and `Living World` as the displayed title. The GitHub repository is already `shottieB/Living-World`.
+
+Before renaming the local project:
+1. Commit the current working state and make a separate backup of the entire project.
+2. Record the current project filename, module name, source folder names, API macro and GameInstance class/module references.
+3. Rename the `.uproject` file and project folder to the chosen LivingWorld naming convention.
+4. Rename Unreal module files/folders and update the module identifier consistently in `.Build.cs`, `.Target.cs`, `.uproject`, configuration files and source references.
+5. Update the module API macro consistently (for example, from the current Walsall-specific macro to `LIVINGWORLD_API` only if the module is renamed to `LivingWorld`).
+6. Update project display metadata and any hard-coded paths or class references.
+7. Regenerate project files, rebuild, open the editor and test the GameInstance, procedural generation, weather, save/load and house interactions.
+8. Keep the old backup untouched until the renamed project passes these checks.
+
+Do not perform a blind global text replacement: Unreal module names, reflected class paths, plugin references and asset references need deliberate checking.
 
 ## Hackney location migration — next work
 
