@@ -59,6 +59,9 @@ The Founder and Creative Director retains final responsibility for creative dire
 
 ## Project references
 
+- [Existing project status and Hackney migration](docs/EXISTING_PROJECT_STATUS.md)
+- [Hackney prototype plan](docs/PROTOTYPE_PLAN_HACKNEY.md)
+- [Camera system design](docs/CAMERA_SYSTEM.md)
 - [Project overview](docs/PROJECT_OVERVIEW.md)
 - [Development roadmap](ROADMAP.md)
 - [Discord structure proposal](docs/DISCORD_STRUCTURE.md)
