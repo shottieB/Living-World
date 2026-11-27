@@ -43,14 +43,25 @@ Do not attempt to make all of Hackney and Tower Hamlets playable in this first m
 
 **Acceptance:** the selected neighbourhood loads consistently in-editor, and the team can identify what is and is not represented by the chosen datasets.
 
-### Milestone B — Player movement
-- Add a third-person character and camera.
+### Milestone B — Player movement and multi-perspective camera
+- Add one player character with **first-person as the default in-game view**.
+- Provide four switchable camera perspectives:
+  1. **First-person:** primary immersive play view for walking, looking and interacting.
+  2. **Front-facing external view ("second-person" option):** camera faces the player character, useful for seeing expressions and character presentation. This is a project-defined view, not a standard camera category.
+  3. **Third-person:** camera follows behind the character at an adjustable distance.
+  4. **Top-down:** overhead view for both observing the simulated neighbourhood and, in later milestones, interacting with world-management tools.
+- Support camera switching through **both** keyboard/controller shortcuts and an on-screen camera selection menu.
+- Keep the character, movement, position, inventory and interaction state continuous when changing views; switching cameras must not possess a different pawn.
+- Add camera collision/obstruction handling, sensible zoom limits and smooth transitions where practical.
 - Establish a safe starting point on a known street or open space.
-- Test walking, turning, camera collision and ground contact.
+- Test walking, turning, camera collision and ground contact in each relevant perspective.
 - Check collision behaviour against streamed geometry.
 - Test entering/exiting Play-in-Editor and Standalone modes.
 
-**Acceptance:** the character can walk around a small test route without falling through the ground or becoming detached from the geospatial scene.
+**Acceptance:** first-person is the default; all four perspectives can be selected using both input methods; changing perspective does not reset or alter player state; the character can walk around a small test route without falling through the ground or becoming detached from the geospatial scene.
+
+### Camera implementation direction
+Keep camera switching inside the player-character/camera system rather than creating separate player pawns. A possible Blueprint setup is `BP_LW_PlayerCharacter` plus a camera manager/component responsible for mode selection, view targets, transitions, collision and zoom. Exact component layout can be decided during implementation.
 
 ### Milestone C — Local environment
 - Add local time and a controllable sun/lighting cycle.
@@ -130,14 +141,14 @@ Use Blueprints for fast visual iteration and C++ where reusable foundations, dat
 
 1. Confirm UE 5.8 installation and project location.
 2. Confirm Cesium for Unreal plugin is installed and record its exact version.
-3. Create a blank third-person project named `LivingWorld` (or agreed project name).
+3. Create a blank project named `LivingWorld` (or agreed project name); choose a template only if it best fits the current setup.
 4. Enable Cesium and restart the editor.
 5. Create an empty level and add Cesium geospatial actors using the current Quickstart.
 6. Fly to the Victoria Park / Bethnal Green candidate area.
 7. Inspect terrain, imagery and building coverage from several heights.
 8. Save screenshots and record performance observations.
 9. Decide the exact 500–800m test boundary.
-10. Only then add the playable character.
+10. Only then add the playable character, with first-person as the default and the four-view camera system planned above.
 
 ## 8. Definition of done for the first demonstrator
 
@@ -145,7 +156,7 @@ The first demonstrator is complete when:
 - UE 5.8 opens the project without errors;
 - Cesium loads the chosen neighbourhood;
 - the scene can be entered repeatedly in Play mode;
-- the player can walk a short route;
+- the player can walk a short route in first-person and switch between all four planned camera perspectives using both shortcut input and the on-screen menu;
 - the project has a documented data/attribution record;
 - the team can reproduce the setup from written instructions;
 - known limitations and performance observations are recorded.
@@ -164,5 +175,7 @@ The first demonstrator is complete when:
 - Exact starting boundary within the Victoria Park / Bethnal Green / canal-side area.
 - Whether the first build uses only Cesium-provided data or supplements it with separately licensed local datasets.
 - Target hardware and minimum acceptable frame rate.
+- Exact shortcut mapping and controller bindings for the four camera modes.
+- Whether top-down world-management interactions are enabled in the first demonstrator or remain a later extension.
 - Whether the first demo is editor-only or a packaged Windows build.
 - Whether Git LFS or Perforce will be used for the Unreal project assets.
