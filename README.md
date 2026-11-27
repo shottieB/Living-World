@@ -18,7 +18,9 @@ Prove the idea in one small town or neighbourhood before attempting a global sim
 
 The initial prototype will explore:
 - one Cesium-backed location;
-- third-person movement;
+- first-person movement as the default, with switchable front-facing, third-person and top-down camera perspectives;
+- camera switching through both keyboard/controller shortcuts and an on-screen menu;
+- a top-down view intended for both world observation and future world-management interactions;
 - local time and a limited weather system;
 - a small group of autonomous NPCs;
 - a few meaningful interactions and one simple activity loop;
