@@ -1,77 +1,182 @@
-# Living World
+# LIVING WORLD
 
-**An evolving, real-world-inspired simulation built on an existing Unreal Engine 5.8 procedural city-generation project.**
+### Procedural real-world (re)generation. A living world simulation.
 
-Living World explores a persistent world in which people, places, weather and everyday events continue to exist independently of the player. The player inhabits the world as an ordinary person; they are part of it, not the centre of the universe.
+**Living World** is an ambitious open-world life simulation being developed with Unreal Engine 5.8, Cesium for Unreal, C++, Blueprints and custom procedural generation systems.
 
-## The vision
+The idea is simple to describe, but ambitious to build:
 
-The project combines three layers:
+**Use the real world as the foundation to generate our own environment — then bring that environment to life with a society that continues to evolve around the player.**
 
-1. **Real-world foundation** — geospatial context, terrain, imagery, buildings and carefully selected live information such as local time and weather.
-2. **Simulation** — fictional residents with routines, needs, relationships, memories and reactions to their surroundings.
-3. **Player experience** — exploration, work, social activity and everyday choices in a world that continues around the player.
+Living World brings together two essential parts:
 
-## First playable target
+- **Procedural world regeneration:** reconstructing real-world environments as custom Unreal Engine worlds, designed for visual quality, consistency, interaction and gameplay.
+- **A living society:** simulating people, homes, businesses, jobs, relationships, routines and everyday activities so that the world feels inhabited rather than populated by background crowds.
 
-Prove the idea in one small town or neighbourhood before attempting a global simulation.
+The player is part of this world, not the centre of it.
 
-The initial prototype will continue the existing Walsall Game 5.8 codebase, rename/rebrand it as LivingWorld, and move its procedural OSM-driven city generation to a compact Hackney, London test area. Existing working systems and fixes are to be preserved during the rename. It will explore:
-- OSM-driven procedural roads, junctions, buildings and terrain heightfield;
-- a planned procedural-terrain/Cesium blend zone, with full Cesium replacement remaining optional;
-- first-person movement as the default, with switchable front-facing, third-person and top-down camera perspectives;
-- camera switching through both keyboard/controller shortcuts and an on-screen menu;
-- a top-down view intended for both world observation and future world-management interactions;
-- local time and a limited weather system;
-- a small group of autonomous NPCs;
-- a few meaningful interactions and one simple activity loop;
-- basic persistence.
+---
 
-This is an early-stage plan, not a claim that these systems are implemented.
+## The core idea
 
-## Technology direction
+### 1. Regenerate the real world
 
-- Unreal Engine 5.8
-- Existing OSM-based procedural city and building generation
-- Procedural terrain heightfield (reported complete in the current project brief)
-- Cesium for Unreal as a geospatial integration/optional later replacement layer
-- C++ for reusable foundations and performance-sensitive systems
-- Blueprints for rapid gameplay and content iteration
-- A controlled data layer for external APIs, caching, validation and fallback behaviour
-- GitHub for public planning and selected project materials
+Cesium for Unreal provides a geographical foundation and access to spatial information such as terrain, 3D Tiles, meshes and available feature-identification data.
 
-## Public development, restricted reuse
+The aim is not simply to use Cesium's streamed representations as the finished game environment. Those representations are valuable geographical references, but they are not necessarily built for the visual quality, consistency, interaction and gameplay requirements of a life simulation.
 
-Living World is developed in public, but this repository is **not currently open source**. Unless a file has its own explicit licence or written permission notice, all rights are reserved. Public visibility does not grant permission to reuse, copy, modify, redistribute or commercially exploit project materials.
+Living World aims to use available geographical and spatial information to procedurally reconstruct its own Unreal Engine environments.
 
-Selected code and assets will remain private in separate repositories or storage. Third-party software, datasets, imagery, plugins and assets remain subject to their own licences and terms. See [LICENSE](LICENSE) and [LICENSING.md](LICENSING.md).
+The longer-term generation system is intended to cover:
+
+- Roads, streets, junctions and pathways.
+- Terrain and landscape features.
+- Buildings and architectural structures.
+- Infrastructure and surrounding environments.
+- The details that make locations visually coherent and recognisable.
+
+**The real world supplies the reference. Our procedural systems generate the playable environment.**
+
+### 2. Architecture that belongs to its region
+
+Buildings should reflect the places they belong to. Architecture changes between countries, regions, towns, neighbourhoods and periods — a single generic building style would lose that local character.
+
+The proposed **Regional Procedural Architecture System** is based on one reusable building-generation engine, driven by regional architectural profiles.
+
+Profiles will define rules and controlled variation for building types, proportions, roof forms, facades, materials, windows, doors, plot layouts and local details. The same generation framework can then support different architectural regions without creating a completely separate building generator for each one.
+
+The system is a development direction, not a claim that a worldwide catalogue of regional architecture already exists. The first profiles and their scope will be developed progressively.
+
+### 3. Bring the world to life
+
+The life simulation is just as important as the environment. The ambition is to create a persistent society of fictional people who have their own lives, destinations, responsibilities and relationships.
+
+Over time, NPCs should be able to:
+
+- Live in homes and visit familiar places.
+- Work, shop, eat and socialise.
+- Follow routines and make independent decisions.
+- Build friendships, relationships and families.
+- Use businesses, services and public spaces.
+- Respond to weather, time and local circumstances.
+- Continue their lives when the player is elsewhere.
+
+The goal is not merely to generate crowds. It is to give people reasons to exist, places to go and things to do.
+
+---
+
+## A world with its own daily rhythm
+
+Towns and cities should change character throughout the day.
+
+**Morning and daytime**
+- Commuters travelling to work.
+- Shops opening and customers arriving.
+- Busy high streets, cafés, restaurants and workplaces.
+- School journeys, deliveries and everyday errands.
+
+**Evening**
+- People finishing work and heading home.
+- Restaurants and pubs becoming busier.
+- Friends meeting, shopping and socialising.
+
+**Night-time**
+- Clubs and nightlife venues filling with people.
+- Groups meeting up and travelling into town.
+- Taxis, late-night food and overnight workers.
+- Busy entertainment areas alongside quieter residential streets.
+
+**Overnight and early morning**
+- Deliveries, cleaning and maintenance.
+- People finishing night shifts or nights out.
+- Early commuters and businesses preparing to open.
+
+These are ambitions for the simulation to produce through schedules, destinations, businesses and autonomous behaviour — not simply crowds that appear at particular times.
+
+---
+
+## Real-world weather and conditions
+
+Living World is intended to connect the environment to real-world conditions.
+
+Local real-world weather is intended to update every **15 minutes**. Weather can influence the appearance of the environment as well as the behaviour and choices of people within it.
+
+Potential effects include:
+
+- Rain, snow and precipitation.
+- Wind, foliage and surface conditions.
+- Cloud cover, lighting, fog and visibility.
+- Temperature and comfort.
+- Outdoor activities, travel and NPC routines.
+
+The project distinguishes real-world information — such as geographical data and weather observations or forecasts — from fictional game systems such as NPCs, businesses, relationships and events. Simulated people and events are part of the game, not claims about real individuals or real-world activity.
+
+---
+
+## The player's place
+
+The player inhabits the world as an ordinary person. They can explore, work, travel, shop, socialise, develop relationships and create their own routine.
+
+There does not need to be a constant stream of compulsory missions. Everyday life, unexpected encounters and opportunities created by the simulation should provide much of the experience.
+
+The wider world should continue to function whether or not the player is present.
+
+---
+
+## Technology and development
+
+**Technical foundation**
+- Unreal Engine 5.8.
+- Cesium for Unreal.
+- C++ and Unreal Blueprints.
+- Procedural city, building and terrain generation.
+- Geographical positioning and spatial data.
+- Weather and environmental integration.
+
+**Longer-term development areas**
+- More advanced real-world environment reconstruction.
+- Regional architectural profiles and building variation.
+- Roads, buildings, terrain and infrastructure generation.
+- Autonomous NPC routines and social behaviour.
+- Businesses, employment and local economies.
+- Persistent world simulation and environmental response.
+- Expansion to larger geographical areas.
+
+The project is being developed progressively. Some underlying procedural systems and fixes are already recorded in the working project; the full regeneration framework and deep life simulation remain ongoing development goals.
+
+---
+
+## Project repositories
+
+This public repository is for the **Living World project introduction, documentation, planning and selected progress updates**.
+
+The Unreal Engine project and its source files are maintained separately in a private GitHub repository. The public repository does not contain the private game project or its large assets.
+
+The working Unreal project and module retain the name `Walsall_Game`. **Living World** is the public-facing project identity; the underlying project was not renamed as part of the GitHub setup.
+
+---
+
+## Public development and reuse
+
+Living World is developed in public, but this repository is **not currently open source**. Public visibility does not grant permission to reuse, copy, modify, redistribute or commercially exploit project materials unless an explicit licence or written permission says otherwise.
+
+Third-party software, datasets, imagery, plugins and assets remain subject to their own licences and terms. See [LICENSE](LICENSE) and [LICENSING.md](LICENSING.md).
 
 ## Get involved
 
-All experience levels are welcome. You can contribute through research, design, code, art, testing, documentation and constructive feedback.
+Constructive feedback, research, design ideas, testing, documentation, art and development contributions are welcome.
 
-1. Read [CONTRIBUTING.md](CONTRIBUTING.md).
-2. Browse [ROADMAP.md](ROADMAP.md).
-3. Look for beginner-friendly or help-wanted issues.
-4. Discuss substantial work before starting.
+- Read [CONTRIBUTING.md](CONTRIBUTING.md).
+- Browse the [development roadmap](ROADMAP.md).
+- Review the [project overview](docs/PROJECT_OVERVIEW.md).
+- Discuss substantial contributions before starting work.
 
-The Founder and Creative Director retains final responsibility for creative direction, scope and project releases.
+The roadmap describes priorities, not guaranteed delivery dates. It will evolve as prototypes and technical work establish what is practical.
 
-## Project references
+---
 
-- [Existing project status and Hackney migration](docs/EXISTING_PROJECT_STATUS.md)
-- [Hackney prototype plan](docs/PROTOTYPE_PLAN_HACKNEY.md)
-- [Camera system design](docs/CAMERA_SYSTEM.md)
-- [Existing project status and rename plan](docs/EXISTING_PROJECT_STATUS.md)
-- [Hackney prototype plan](docs/PROTOTYPE_PLAN_HACKNEY.md)
-- [Camera system design](docs/CAMERA_SYSTEM.md)
-- [Project overview](docs/PROJECT_OVERVIEW.md)
-- [Development roadmap](ROADMAP.md)
-- [Discord structure proposal](docs/DISCORD_STRUCTURE.md)
-- [Licensing policy](LICENSING.md)
-- [Fluid Planet case study](https://cesium.com/blog/2023/08/31/fluid-planet-immerses-young-students-in-the-outdoors/)
-- [Fluid Planet video](https://vimeo.com/857165355)
-- [HOK Centre Block Digital Twin video](https://www.youtube.com/watch?v=YxnaFAOJdU8)
-- [Cesium for Unreal documentation](https://cesium.com/learn/unreal/)
+## Guiding principle
 
-The roadmap describes priorities, not guaranteed delivery dates. We will adjust it as prototypes teach us what is practical.
+**First, regenerate the world. Then bring it to life.**
+
+A world that doesn't revolve around the player — because everyone and everything has a life of its own.
