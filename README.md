@@ -1,6 +1,6 @@
 # Living World
 
-**An evolving, real-world-inspired simulation built with Unreal Engine 5.8 and Cesium for Unreal.**
+**An evolving, real-world-inspired simulation built on an existing Unreal Engine 5.8 procedural city-generation project.**
 
 Living World explores a persistent world in which people, places, weather and everyday events continue to exist independently of the player. The player inhabits the world as an ordinary person; they are part of it, not the centre of the universe.
 
@@ -16,8 +16,9 @@ The project combines three layers:
 
 Prove the idea in one small town or neighbourhood before attempting a global simulation.
 
-The initial prototype will explore:
-- one Cesium-backed location;
+The initial prototype will build on the existing Walsall Game 5.8 codebase and move its procedural OSM-driven city generation to a compact Hackney, London test area. It will explore:
+- OSM-driven procedural roads, junctions, buildings and terrain heightfield;
+- a planned procedural-terrain/Cesium blend zone, with full Cesium replacement remaining optional;
 - first-person movement as the default, with switchable front-facing, third-person and top-down camera perspectives;
 - camera switching through both keyboard/controller shortcuts and an on-screen menu;
 - a top-down view intended for both world observation and future world-management interactions;
@@ -31,7 +32,9 @@ This is an early-stage plan, not a claim that these systems are implemented.
 ## Technology direction
 
 - Unreal Engine 5.8
-- Cesium for Unreal
+- Existing OSM-based procedural city and building generation
+- Procedural terrain heightfield (reported complete in the current project brief)
+- Cesium for Unreal as a geospatial integration/optional later replacement layer
 - C++ for reusable foundations and performance-sensitive systems
 - Blueprints for rapid gameplay and content iteration
 - A controlled data layer for external APIs, caching, validation and fallback behaviour
